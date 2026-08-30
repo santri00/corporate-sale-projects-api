@@ -1,0 +1,52 @@
+[project]
+name = "corporate-sales-projects-api"
+version = "1.0.0"
+description = "API for managing corporate sales projects and B2B clients"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi>=0.111",
+    "uvicorn[standard]>=0.30",
+    # Beanie 2.x requires a newer Motor API (`client.append_metadata`) than the
+    # released Motor provides; stay on the 1.x line.
+    "beanie>=1.27,<2",
+    "motor>=3.4",
+    "pydantic>=2.7",
+    "pydantic-settings>=2.3",
+    "email-validator>=2.1",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.2",
+    "pytest-asyncio>=0.23",
+    "mongomock-motor>=0.0.29",
+    "httpx>=0.27",
+    "ruff>=0.5",
+]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+filterwarnings = [
+    # Beanie 1.x / lazy-model internals against Pydantic 2.11+
+    "ignore:Accessing the 'model_fields' attribute on the instance is deprecated:DeprecationWarning",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+# FastAPI's `Depends()` / `Query()` in argument defaults is the intended pattern.
+ignore = ["B008"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["DTZ"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["app"]
