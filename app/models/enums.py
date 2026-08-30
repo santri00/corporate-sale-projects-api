@@ -1,0 +1,45 @@
+from enum import StrEnum
+
+
+class ProjectType(StrEnum):
+    CORPORATE_GIFTING = "CORPORATE_GIFTING"
+    COMPLEX_ORDER = "COMPLEX_ORDER"
+    GENERAL_B2B = "GENERAL_B2B"
+
+
+class Sector(StrEnum):
+    RESIDENTIAL = "RESIDENTIAL"
+    COMMERCIAL = "COMMERCIAL"
+
+
+class Priority(StrEnum):
+    HIGH = "HIGH"
+    MEDIUM = "MEDIUM"
+    LOW = "LOW"
+
+
+class WorkflowState(StrEnum):
+    NEW = "NEW"
+    HOLD = "HOLD"
+    QUOTE_REQUESTED = "QUOTE_REQUESTED"
+    PRODUCT_FINALIZED = "PRODUCT_FINALIZED"
+    COMPLETE = "COMPLETE"
+    CANCELLED = "CANCELLED"
+
+
+class ClientType(StrEnum):
+    DEVELOPER = "DEVELOPER"
+    STAGER = "STAGER"
+    SPORTS_FRANCHISE = "SPORTS_FRANCHISE"
+    BUSINESS = "BUSINESS"
+
+
+class PaymentTerms(StrEnum):
+    NET_30 = "NET_30"
+    NET_60 = "NET_60"
+
+
+class DeliveryType(StrEnum):
+    PARCEL = "PARCEL"
+    WHITE_GLOVE = "WHITE_GLOVE"
+    CONSOLIDATED_THRESHOLD_DELIVERY = "CONSOLIDATED_THRESHOLD_DELIVERY"
