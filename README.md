@@ -1,6 +1,6 @@
-# Corporate Sales Projects API Example
+# A Python API Example
 
-A FastAPI service as an example for managing corporate sales **projects** and the
+A FastAPI service as a demo for the idea of managing corporate sales **projects** and the
 **clients** they belong to. Storage is MongoDB via [Beanie](https://beanie-odm.dev/);
 the whole `Project` aggregate (workflow, team, financials, logistics, design
 services, corporate gifting) is stored as a single document.
